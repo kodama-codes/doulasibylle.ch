@@ -151,6 +151,41 @@ nav a:hover, nav a:focus {
     background: var(--secondary)
 }
 
+
+/* Index */
+.logo-big {
+    max-width: 200px;
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, .08));
+}
+
+.hero-split {
+    padding: 0;
+    overflow: hidden;
+}
+
+.hero-img-right {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.hero-img-right .hero-img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.hero-img {
+    mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 18%
+    );
+}
+
 /* Hero */
 .hero {
     display: grid;
