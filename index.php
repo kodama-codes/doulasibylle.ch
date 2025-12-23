@@ -5,33 +5,41 @@ $current = 'home';
 <!doctype html>
 <html lang="de">
 <?php include __DIR__ . '/partials/head.php'; ?>
-<body>
+
+<body
+        class="page-home"
+        style="
+                background-image: url('/assets/bg-texture.png');
+                background-repeat: repeat;
+                background-position: center;
+                background-size: 900px;
+                background-attachment: fixed;
+                "
+>
+
+
 <?php include __DIR__ . '/partials/header.php'; ?>
+
 
 <main>
 
-
-    <section class="hero-split" style="background: var(--secondary);">
-
-        <div class="container-fluid px-0">
-            <div class="row g-0 align-items-center">
-                <div class="col-lg-6 offset-lg-2">
-                    <div class="container">
-                        <div class="py-5">
-                            <div class="d-flex align-items-center gap-3 mb-3">
-                                <img class="logo-big" src="/assets/logo.png"
-                                     alt="Doula Sibylle Logo">
-                                <h1 class="m-0" style="color: var(--accent);">Doula Sibylle</h1>
-                            </div>
-                            <p class="lead mb-0">
-                                Einfühlsame Begleitung durch Schwangerschaft, Geburt und Wochenbett.
-                            </p>
+    <section class="hero-soft">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="hero-text">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img class="logo-big" src="/assets/logo.png" alt="Doula Sibylle Logo">
+                            <h1 class="m-0" style="color: var(--accent);">Doula Sibylle</h1>
                         </div>
+                        <p class="lead mb-0">
+                            Einfühlsame Begleitung durch Schwangerschaft, Geburt und Wochenbett.
+                        </p>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="hero-img-right">
+                <div class="col-lg-6">
+                    <div class="hero-img-soft text-lg-end">
                         <img src="/assets/pregnancy.png" class="hero-img"
                              alt="Schwangerschaft Illustration">
                     </div>
@@ -41,15 +49,16 @@ $current = 'home';
     </section>
 
 
-    <section class="py-5 text-center" style="background: var(--primary); color:#fff;">
-        <div class="container reveal">
+    <section class="py-5 text-center" style="background: var(--secondary)">
+        <div class="container">
             <h2 class="mb-4">Du bestimmst deinen Weg.<br>Ich halte den Raum.</h2>
             <img src="/assets/hero_round.png" alt="" style="max-width:220px;">
         </div>
     </section>
 
-    <section class="py-5">
-        <div class="container reveal">
+
+    <section class="py-5" style="background: var(--secondary)">
+        <div class="container">
             <h3 class="mb-4">Was macht eine Doula?</h3>
             <div class="row g-4">
                 <div class="col-md-4">

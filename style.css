@@ -1,6 +1,9 @@
 :root {
     --primary: #D8A7A7;
-    --secondary: #F7F1F1;
+    --primary-soft: rgba(223, 203, 203, 0.9);
+    --secondary: rgba(247, 241, 241, 0.8);
+    --secondary-soft: rgba(247, 241, 241, 0.65);
+    --white-soft: rgba(255, 255, 255, 0.9);
     --accent: #A56C6C;
     --text: #3D3D3D;
     --max: 1100px;
@@ -41,7 +44,7 @@ main {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #fff;
+    background: var(--secondary);
 }
 
 .brander {
@@ -154,36 +157,86 @@ nav a:hover, nav a:focus {
 
 /* Index */
 .logo-big {
-    max-width: 200px;
+    max-width: 300px;
     filter: drop-shadow(0 10px 22px rgba(0, 0, 0, .08));
 }
 
-.hero-split {
-    padding: 0;
+.hero-soft {
+    padding: 20px;
+    background: var(--white-soft);
     overflow: hidden;
 }
 
-.hero-img-right {
+.hero-text {
+    padding: 56px 0;
+}
+
+.hero-img-soft {
+    position: relative;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.hero-img-right .hero-img {
+/* weiche Einbettung des dunkleren Bildbereichs rechts */
+.hero-img-soft::before {
+    content: "";
+    position: absolute;
+    inset: -40px -60px -40px -40px;
+    background: radial-gradient(circle at 80% 50%, rgba(247, 241, 241, 0.65) 0%, rgba(247, 241, 241, 0) 55%),
+    radial-gradient(circle at 30% 50%, rgba(247, 241, 241, 0.35) 0%, rgba(247, 241, 241, 0) 55%);
+    pointer-events: none;
+}
+
+.hero-img-soft .hero-img {
+    position: relative;
+    z-index: 1;
     display: block;
     width: auto;
     max-width: 100%;
-    max-height: 500px;
+    max-height: 560px;
     object-fit: contain;
+
+    opacity: 0.68;
+    filter: brightness(1.06) drop-shadow(0 10px 22px rgba(0, 0, 0, .08));
+
+    /* beide Kanten weich, nicht nur links */
+    mask-image: linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 16%, black 84%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 16%, black 84%, transparent 100%);
+    -webkit-mask-composite: source-in;
+
 }
 
-.hero-img {
-    mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 18%
-    );
+@media (max-width: 900px) {
+    .hero-text {
+        padding: 44px 0;
+        text-align: center;
+    }
+
+    .hero-img-soft {
+        justify-content: center;
+        padding-bottom: 24px;
+    }
+
+    .hero-img-soft .hero-img {
+        max-height: 480px;
+    }
+}
+
+
+/**************** Sections *********************/
+.section-primary-soft {
+    background: var(--primary-soft);
+    backdrop-filter: blur(1.5px);
+}
+
+.section-overlay {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(1.5px);
 }
 
 /* Hero */
@@ -246,6 +299,11 @@ section {
 
 section .lead {
     max-width: 780px
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--accent)
 }
 
 h3 {
@@ -353,7 +411,7 @@ label {
 /* Footer */
 footer {
     padding: 40px 0;
-    background: var(--secondary);
+    background: var(--primary);
     border-top: 1px solid rgba(0, 0, 0, .06);
     margin-top: auto
 }
